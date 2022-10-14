@@ -1,5 +1,6 @@
 window.addEventListener("load", (event)=> {
-    let squares  = document.querySelectorAll("#board > div");
+    let active;
+    let squares = document.querySelectorAll("#board > div");
     let state = -1;
 
     squares.forEach((sq)=> {
@@ -7,7 +8,7 @@ window.addEventListener("load", (event)=> {
         sq.innerHTML = " ";
 
     });
-
+    
     squares.forEach((sq)=> {
         sq.onclick = (event)=>{
             if (state == -1 || state == 1){
@@ -21,7 +22,17 @@ window.addEventListener("load", (event)=> {
                 sq.classList.add("O");
                 sq.innerHTML = 'O';
                 state = 1;
-            }
+            }  
         }
+
+        sq.onmouseover = (event)=>{
+            sq.style.transition = "all .3s ease-in-out"
+            sq.classList.add("hover");
+        }
+
+        sq.onmouseout = (event)=>{
+            sq.classList.remove("hover");
+        }
+
     });
 });
