@@ -9,6 +9,7 @@ window.addEventListener("load", (event)=> {
     let playerO = false;
     let winner;
     let squares  = document.querySelectorAll("#board > div");
+    let btn =  document.querySelector(".btn");
 
     squares.forEach((sq)=> {
         sq.classList.add("square");
@@ -79,4 +80,11 @@ window.addEventListener("load", (event)=> {
             }
          } 
     });
+
+    btn.addEventListener('click', (event) => {
+        squares.forEach((square) => {
+            square.innerHTML = "";
+            location.reload();
+        });
+    })
 });
